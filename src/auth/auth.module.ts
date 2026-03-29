@@ -29,6 +29,7 @@ import { RolesGuard } from './guards/roles.guard';
 import { MfaVerifiedGuard } from './guards/mfa-verified.guard';
 import { OptionalJwtAuthGuard } from './guards/optional-jwt-auth.guard';
 import { ProviderDirectoryService } from './services/provider-directory.service';
+import { SessionCleanupTask } from './tasks/session-cleanup.task';
 
 @Module({
   imports: [
@@ -58,6 +59,7 @@ import { ProviderDirectoryService } from './services/provider-directory.service'
     OptionalJwtAuthGuard,
     RolesGuard,
     MfaVerifiedGuard,
+    SessionCleanupTask,
   ],
   controllers: [AuthController, MfaController, ProvidersController],
   exports: [
